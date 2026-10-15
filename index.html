@@ -1,0 +1,448 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Veet AI Hair Removal Assistant · Interactive Prototype V2.8</title><style>
+:root{--pink:#d9006c;--pale:#fff5f9;--ink:#25212b;--muted:#625a65;--line:#e8e1e6}*{box-sizing:border-box}body{margin:0;background:#f7f2f5;color:var(--ink);font:15px/1.65 "Microsoft YaHei",system-ui,sans-serif}button,input,select,textarea{font:inherit}button,a,input,select{touch-action:manipulation}button{cursor:pointer}button:focus-visible,a:focus-visible{outline:3px solid #9e0054;outline-offset:3px}button:disabled{cursor:not-allowed;opacity:.45}.shell{display:grid;grid-template-columns:280px 1fr;min-height:100vh}.sidebar{background:#fffafb;border-right:1px solid var(--line);padding:28px 22px;position:sticky;top:0;height:100vh;overflow:auto}.brand{color:var(--pink);font-size:16px;font-weight:700;letter-spacing:1px}.sidebar h1{font-size:24px;line-height:1.4;margin:8px 0}.version{display:inline-block;border-radius:5px;font-size:12px;color:#ab0054;background:#ffe7f1;padding:3px 8px}.sectionlabel{font-size:12px;letter-spacing:2px;color:#938590;margin:22px 0 8px}.navbutton{display:block;text-align:left;width:100%;padding:11px 12px;border:0;background:none;color:var(--muted);border-radius:9px;font-size:14px}.navbutton.active{background:#ffe7f1;color:#b5005a;font-weight:600}.navbutton:hover{background:#fff0f6}.sidenote{font-size:12px;color:#85747f;margin:20px 0}.workspace{padding:30px 36px}.workspaceHeader{max-width:1050px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:20px}.workspaceHeader h2{margin:0;font-size:20px}.workspaceHeader p{margin:5px 0;color:var(--muted);font-size:13px}.toplink{color:#a00050;font-size:13px}.stage{display:flex;gap:32px;align-items:flex-start;justify-content:center;padding:28px 0}.phone{width:390px;flex-shrink:0;height:830px;background:white;border:1px solid var(--line);border-radius:28px;box-shadow:0 18px 50px #48233a14;overflow:hidden;display:flex;flex-direction:column}.statusbar{height:31px;flex-shrink:0;display:flex;justify-content:space-between;padding:10px 24px 0;font-size:12px;font-weight:700}.phonebar{height:50px;flex-shrink:0;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid #f1edf0;font-size:13px}.back{background:none;border:0;color:#66575f;font-size:13px;padding:5px}.capsule{border:1px solid var(--line);border-radius:20px;padding:1px 9px;font-size:13px;white-space:nowrap}.screen{overflow:auto;padding:20px;flex:1;scrollbar-width:thin}.screen h2{font-size:23px;line-height:1.4;margin:10px 0 12px}.screen h3{font-size:17px;margin:8px 0}.screen p{margin:9px 0}.muted{color:var(--muted);font-size:13px}.badge{display:inline-block;border-radius:5px;background:#fff0f7;color:#a80054;padding:3px 8px;font-size:11px}.badge.gray{background:#f0ecef;color:#65535f}.card{border:1px solid var(--line);border-radius:15px;padding:16px;margin:14px 0}.card.pale{background:var(--pale);border:0}.primary,.secondary{width:100%;padding:12px 14px;min-height:48px;border:0;border-radius:12px;margin:12px 0 0;font-size:15px}.primary{background:var(--pink);color:white}.secondary{background:#fff0f7;color:#a00050}.textbtn{background:none;border:0;color:#a00050;padding:6px 0;text-align:left;font-size:13px}.notice{font-size:13px;background:#fff4e8;padding:12px;border-radius:10px;color:#805018;margin:12px 0}.notice.pink{background:#fff0f7;color:#9e0052}.row{display:flex;gap:10px}.row>*{flex:1}.selection{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin:10px 0 18px}.selection button{border:1px solid var(--line);background:white;min-height:45px;border-radius:10px;font-size:14px;padding:8px;color:var(--ink)}.selection button.selected{border-color:var(--pink);background:#fff0f7;color:#a00050}.field{margin:16px 0}.field>b{font-size:14px}.field label{display:block;margin:7px 0;font-size:14px}.field input{accent-color:var(--pink)}select,input[type=search],textarea{width:100%;border:1px solid var(--line);border-radius:9px;padding:10px;margin-top:8px;background:white;color:var(--ink)}textarea{min-height:70px;resize:vertical}.error{color:#a00050;font-size:13px;min-height:20px;margin:6px 0}.skin{height:170px;border-radius:14px;background:linear-gradient(120deg,#dfb99c,#f1d5bb,#e7bda4);position:relative;overflow:hidden;margin:12px 0}.hair{position:absolute;background:#70503c;width:2px;height:24px;border-radius:90%;transform:rotate(28deg);opacity:.65}.frame{position:absolute;inset:18px;border:2px solid white;border-radius:12px}.skinLabel{position:absolute;left:10px;bottom:10px;color:white;background:#694839ad;padding:2px 7px;font-size:12px;border-radius:5px}.product{display:flex;gap:14px;align-items:center}.product img{width:78px;height:98px;object-fit:contain;background:white;border-radius:10px}.product h3{font-size:15px}.product .muted{font-size:12px}.detailimg{height:160px;display:block;margin:auto;max-width:100%;object-fit:contain}.chips{display:flex;gap:6px;flex-wrap:wrap;margin:10px 0}.chip{font-size:12px;padding:3px 8px;border-radius:6px;background:#f7f1f5}.metric{font-size:34px;font-weight:700;color:var(--pink);line-height:1.3;margin:10px 0}.step{display:flex;gap:12px;border:1px solid var(--line);border-radius:12px;padding:14px;margin:10px 0}.stepnum{border-radius:50%;width:28px;height:28px;flex-shrink:0;background:#ffe5f0;color:#a00050;display:grid;place-items:center;font-size:13px}.step b{font-size:14px}.step p{font-size:13px;color:var(--muted);margin:4px 0}.tabs{flex-shrink:0;height:59px;display:flex;align-items:center;border-top:1px solid var(--line);justify-content:space-around;padding-bottom:8px}.tabs button{border:0;background:white;color:var(--muted);font-size:13px}.tabs .selected{color:var(--pink);font-weight:700}.annotations{width:270px;padding-top:10px}.annotations h3{font-size:15px;margin:0 0 10px}.annotations p,.annotations li{font-size:13px;color:var(--muted)}.annotations ul{padding-left:18px}.docframe{width:100%;height:calc(100vh - 145px);border:1px solid var(--line);border-radius:16px;background:white;margin-top:24px}.overview{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:24px;margin:26px auto;max-width:1350px}.preview{border:1px solid var(--line);border-radius:18px;background:white;overflow:hidden}.previewtitle{padding:12px 16px;background:#fff0f7;color:#a00050;font-size:13px}.previewbody{padding:20px;max-height:680px;overflow:auto;font-size:14px}.previewbody h2{font-size:22px}.previewbody button{pointer-events:none}.previewbody .skin{height:140px}.modalback{position:fixed;inset:0;background:#22111c66;display:grid;place-items:center;z-index:10;padding:20px}.modal{background:white;border-radius:18px;padding:24px;max-width:420px;width:100%;box-shadow:0 15px 50px #0003}.modal h3{margin:0 0 12px}.modal p{font-size:14px}.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);padding:12px 20px;background:#33232e;color:white;border-radius:10px;font-size:14px;z-index:20}.hidden{display:none!important}a{color:#a00050;overflow-wrap:anywhere}@media(max-width:1100px){.annotations{width:210px}.workspace{padding:24px}.sidebar{padding:24px 16px}.shell{grid-template-columns:245px 1fr}}@media(max-width:900px){.annotations{display:none}}@media(max-width:650px){.shell{display:block}.sidebar{position:static;height:auto;padding:18px;border:0}.sidebar h1{font-size:21px}.resources{display:flex;flex-wrap:wrap;gap:6px}.resources .navbutton{width:auto;font-size:13px;padding:8px}.pagemenu,.sidenote,.sectionlabel{display:none}.workspace{padding:16px}.workspaceHeader h2{font-size:17px}.toplink{display:none}.stage{padding:18px 0}.phone{width:100%;max-width:390px;height:820px}.overview{grid-template-columns:1fr}.docframe{height:80vh}.previewbody{max-height:none}}
+.timerCard{background:#fff5f9;border:1px solid #f2c9dc;border-radius:18px;padding:18px;text-align:center;margin:16px 0}.clock{font-size:54px;line-height:1.3;font-weight:650;font-variant-numeric:tabular-nums;letter-spacing:2px;color:#b6005a}.waxArt{background:#fff7fa;border:1px solid #efdee6;border-radius:18px;overflow:hidden;margin:16px 0}.waxArt img{width:100%;display:block}.waxProgress{display:flex;gap:10px;align-items:center;margin:18px 0}.waxProgress span{border:1px solid #e4d5dc;border-radius:50%;width:32px;height:32px;display:grid;place-items:center;color:#8b7c84}.waxProgress .current{background:#d9006c;color:white;border-color:#d9006c}.waxProgress .done{background:#ffe5f0;color:#a00050}.waxProgress b{margin-left:auto;font-size:13px;color:#85747f}.directionLegend{display:flex;justify-content:space-between;gap:12px;font-size:13px;background:#fff5f9;padding:12px;border-radius:10px;color:#685865}.directionLegend b{color:#b10059}
+.homeHero{margin:14px 0 4px;border:1px solid #f0e8ee;border-radius:15px;overflow:hidden;background:#f8fafc}.homeHero img{display:block;width:100%;height:auto;aspect-ratio:3/2;object-fit:contain}.brandQuote{position:relative;display:block;margin:24px 0 16px;padding:42px 10px 44px;border:0;border-radius:0;background:none;text-align:center}.brandQuote p{position:relative;z-index:1;color:#07345e;font-size:16px;font-weight:500;line-height:1.85;margin:0!important}.brandQuote p+p{margin-top:10px!important}.brandQuote .quoteMark{position:absolute;width:52px;height:48px;pointer-events:none}.brandQuote .quoteOpen{top:0;left:0}.brandQuote .quoteClose{bottom:0;right:0;transform:rotate(180deg)}.previewbody .brandQuote p{font-size:16px}
+.specUnit{display:inline-block;white-space:nowrap;overflow-wrap:normal;word-break:normal}.product>div{min-width:0}.product img{flex-shrink:0}.coverageSummary{margin:16px 0;background:#fff5f9;border-radius:15px;padding:18px}.coveragePair{display:grid;grid-template-columns:1fr 1fr;gap:12px}.coverageCell{min-width:0}.coverageLabel{font-size:12px;color:var(--muted)}.coverageValue{font-size:30px;font-weight:650;line-height:1.4;color:var(--ink);font-variant-numeric:tabular-nums}.coverageChange{margin-top:16px;padding-top:16px;border-top:1px solid #f1dce6}.coverageChange .metric{font-size:48px;line-height:1.15;margin:7px 0}.coverageChange .muted{font-size:12px}.coverageReport .metric{margin:6px 0;font-size:36px}.aiReview{margin:18px 0;border:1px solid #ecdfe7;border-radius:16px;background:#fff;overflow:hidden}.aiReview summary{padding:16px;color:var(--ink);font-weight:650;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px}.aiReview summary::-webkit-details-marker{display:none}.aiReview summary:after{content:'＋';color:var(--pink);font-size:20px}.aiReview[open] summary:after{content:'−'}.aiReviewBody{padding:0 16px 16px}.aiViewTabs{display:flex;gap:4px;padding:4px;background:#fff5f9;border-radius:12px;margin-bottom:14px}.aiViewTabs button{flex:1;min-width:0;border:0;background:transparent;color:var(--muted);padding:10px 2px;border-radius:9px;font:inherit;font-size:12px;cursor:pointer}.aiViewTabs button[aria-pressed="true"]{background:var(--pink);color:#fff}.aiViewPanel{display:grid;grid-template-columns:1fr;gap:10px}.aiViewPanel.pair{grid-template-columns:1fr 1fr}.aiViewPanel figure{margin:0;min-width:0}.aiViewPanel figcaption{font-size:12px;color:var(--muted);text-align:center;margin-top:8px}.aiViewPanel .skin{height:190px;margin:0;border-radius:12px}.aiViewPanel.pair .skin{height:170px}.aiViewPanel .skinLabel{display:none}.aiViewPanel .frame{border-width:2px}.aiViewPanel .marked .hair{background:#d9006c;box-shadow:0 0 0 2px #e85c9a33}.aiViewPanel .marked .frame{border-color:#6c9b7a;border-style:dashed;background:#78a48712}.aiViewPanel .mask .skin{background:#25212b}.aiViewPanel .mask .hair{background:#fff}.aiViewPanel .mask .frame{display:none}.aiReviewHint{font-size:12px;color:var(--muted);line-height:1.6;margin:12px 0 0}.aiKey{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:4px}.aiKey.hairKey{background:#d9006c}.aiKey.areaKey{background:#6c9b7a}.phrase{display:inline-block;max-width:100%;vertical-align:top;overflow-wrap:anywhere}.field.damageQuestion>b{font-size:13.5px}.screen{container-type:inline-size}@container(max-width:325px){.field.damageQuestion>b{font-size:13px}}.pauseCard h3{color:#a00050}.manualSegment{display:inline-block;max-width:100%;vertical-align:top}.creamArt{margin:14px 0;border:1px solid #efdee6;border-radius:16px;overflow:hidden;background:#fffaf6}.creamArt img{display:block;width:100%;height:190px;object-fit:contain}.creamArt figcaption{padding:8px 12px;font-size:12px;color:var(--muted)}.creamAllSteps{margin:16px 0}.creamAllSteps summary,.fragrance summary{font-size:13px;color:#a00050;cursor:pointer}.fragrance{margin-top:16px;padding-top:14px;border-top:1px solid var(--line)}.fragrance h3{font-size:15px}.fragrance dl{font-size:13px;margin:10px 0}.fragrance dt{color:#a00050;margin-top:8px}.fragrance dd{margin:2px 0 0;color:var(--muted)}.careIcon{display:grid;place-items:center;flex-shrink:0;width:64px;height:78px;border-radius:12px;background:#fff0f7;color:#a00050;font-size:24px;font-weight:650}.careCard h3{font-size:15px}.careCard .product{align-items:flex-start}.careCard .textbtn{display:block}.careLinks{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.careLinks button{border:1px solid #eedce6;background:white;border-radius:9px;padding:9px 12px;color:#a00050;font-size:13px}.carePoster{display:block;width:100%;border-radius:12px;margin:12px 0}.aftercarePanel{margin-top:22px}.aftercarePanel h3{font-size:17px}</style></head><style>body{padding:20px 12px}.prototypeToolbar{max-width:390px;margin:0 auto 14px;display:flex;gap:10px;align-items:center}.prototypeToolbar select{margin:0;min-width:0;flex:1;font-size:13px}.prototypeToolbar button{border:0;border-radius:9px;padding:9px 12px;background:#ffe7f1;color:#a00050;white-space:nowrap}.prototypeTitle{max-width:390px;margin:0 auto 12px;font-size:16px;color:#a00050}.phone{margin:auto;width:390px;max-width:100%;height:844px;min-height:844px}.prototypeNote{max-width:390px;margin:12px auto;font-size:12px;color:#786b74}@media(max-width:450px){body{padding:10px 8px}.phone{height:844px;min-height:844px}} .screen{min-height:0}.phone .screen::-webkit-scrollbar{width:0}@media(max-width:413px){body{padding:0}.prototypeTitle,.prototypeToolbar,.prototypeNote{padding-left:12px;padding-right:12px}.phone{width:100%;border-radius:0;border-left:0;border-right:0}}body.capture{padding:0;background:white}body.capture .prototypeTitle,body.capture .prototypeToolbar,body.capture .prototypeNote{display:none}body.capture .phone{margin:0;width:390px;max-width:none;height:844px;min-height:844px}</style><body><h1 class="prototypeTitle">薇婷 AI 脱毛助手 · V2.8</h1><div class="prototypeToolbar"><button onclick="navigate(0)">返回首页</button><select id="pageSelect" aria-label="预览原型页面" onchange="jump(Number(this.value))"></select></div><div class="phone"><div class="statusbar"><span>9:41</span><span>● ▰</span></div><div class="phonebar"><button class="back" onclick="back()">‹ 返回</button><b>薇婷 AI 脱毛助手</b><span class="capsule">··· ⊙</span></div><div class="screen" id="screen"></div><div class="tabs" id="tabs"></div></div><p class="prototypeNote">可点击展示原型；页面预览载入示例状态。图片已内嵌，可离线打开。</p><div id="pagemenu" hidden></div><div id="annotations" hidden></div><div id="modalRoot"></div><div id="toast" class="toast hidden" role="status"></div><script>const PROTO_ASSETS={};
+function inlinePrototypeImages(html){return html.replace(/src="(assets\/[^"]+)"/g,(_,p)=>'src="'+(PROTO_ASSETS[p]||p)+'"')}
+
+const PRODUCTS=[{"id": "80", "name": "薇婷净纯脱毛膏", "variant": "温和型", "gender": "女", "skin": "敏感", "kind": "cream", "areas": ["腋下", "腿部", "手臂", "比基尼边界"], "sizes": ["50 ml", "100 ml", "200 ml"], "check": 5, "maximum": 10, "url": "https://www.veet.com.cn/jingchun/whx", "guide": "https://www.veet.com.cn/static/uploads/ueditor/20240722/wh6.jpg", "fragrance": {"name": "温暖花果香型", "top": "覆盆子、百香果、黑醋栗", "middle": "紫罗兰、鸢尾、茉莉", "base": "香草、檀香、麝香", "source": "https://www.veet.com.cn/static/uploads/ueditor/20240722/wh5.jpg"}, "image": "assets/product-80.png"}, {"id": "79", "name": "薇婷净纯脱毛膏", "variant": "保湿型", "gender": "女", "skin": "中性", "kind": "cream", "areas": ["腋下", "腿部", "手臂", "比基尼边界"], "sizes": ["50 ml"], "check": 3, "maximum": 6, "url": "https://www.veet.com.cn/jingchun/bsx1", "guide": "https://www.veet.com.cn/static/uploads/ueditor/20240722/zx6.jpg", "fragrance": {"name": "铃兰黑加仑香型", "top": "苹果、果香、黑加仑", "middle": "铃兰、玫瑰、小苍兰", "base": "麝香、檀木香、桃子／杏子", "source": "https://www.veet.com.cn/static/uploads/ueditor/20240722/zx4.jpg"}, "image": "assets/product-79.png"}, {"id": "76", "name": "薇婷净纯脱毛膏", "variant": "滋润型", "gender": "女", "skin": "干性", "kind": "cream", "areas": ["腋下", "腿部", "手臂", "比基尼边界"], "sizes": ["50 ml", "100 ml"], "check": 3, "maximum": 6, "url": "https://www.veet.com.cn/jingchun/zrx", "guide": "https://www.veet.com.cn/static/uploads/ueditor/20240722/gx6.jpg", "fragrance": {"name": "鸢尾檀木香型", "top": "果香、桃子", "middle": "玫瑰、鸢尾、铃兰", "base": "木香", "source": "https://www.veet.com.cn/static/uploads/ueditor/20240722/gx4.jpg"}, "image": "assets/product-76.png"}, {"id": "70", "name": "薇婷菁纯脱毛膏", "variant": "温和型", "gender": "女", "skin": "敏感", "kind": "cream", "areas": ["腋下", "腿部", "手臂", "比基尼边界"], "sizes": ["50 ml", "100 ml", "200 ml"], "check": 5, "maximum": 10, "url": "https://www.veet.com.cn/jc/gxjf", "guide": "https://www.veet.com.cn/static/uploads/ueditor/20240722/jc6.jpg", "fragrance": {"name": "柑橘花木香型", "top": "佛手柑、葡萄柚、杏", "middle": "玫瑰、太阳花、紫罗兰", "base": "麝香、木质香", "source": "https://www.veet.com.cn/static/uploads/ueditor/20240722/jc4.jpg"}, "image": "assets/product-70.png"}, {"id": "69", "name": "薇婷男士脱毛膏", "variant": "温和型", "gender": "男", "skin": "敏感", "kind": "cream", "areas": ["腋下", "腿部", "手臂", "胸部", "背部"], "sizes": ["200 ml"], "check": 5, "maximum": 10, "url": "https://www.veet.com.cn/tuomg/nswhx", "guide": "https://www.veet.com.cn/static/uploads/ueditor/20240722/ns7.jpg", "fragrance": {"name": "果香花木调", "top": "果香、桃子、覆盆子", "middle": "玫瑰、鸢尾花、铃兰", "base": "木质香", "version": "以下香调对应官网绿色TOTAL PRO包装，请核对手中版本。", "source": "https://www.veet.com.cn/static/uploads/ueditor/20240722/ns5.jpg"}, "image": "assets/product-69.png"}, {"id": "71", "name": "薇婷净纯脱毛蜡纸", "variant": "敏感肌肤", "gender": "女", "skin": "敏感", "kind": "wax", "areas": ["腿部", "手臂"], "pendingAreas": ["腋下", "比基尼边界"], "sizes": ["6 片", "16 片"], "check": null, "maximum": null, "url": "https://www.veet.com.cn/lazhi/tmlz", "guide": "https://www.veet.com.cn/static/uploads/ueditor/20240729/lz7.jpg", "image": "assets/product-71.png"}];
+const CARE_PRODUCTS=[{"id": "oil", "name": "薇婷奇迹焕肤精油", "size": "100 ml", "purpose": "滋润养肤", "short": "日常滋润护理，按包装确认使用时机。", "areas": ["腋下", "腿部", "手臂"], "caution": "含香精及坚果来源成分。对相关成分敏感时，请先核对完整成分和使用限制；不要用于脱毛膏或蜡纸使用前打底。", "url": "https://www.veet.com.cn/huli/qjhfjy", "image": "assets/care-oil.png", "evidence": "中国官网产品页及包装图"}, {"id": "b5", "name": "薇婷原B5冰感舒缓凝霜", "size": "30 ml", "purpose": "脱后舒缓保湿护理", "short": "使用方法与限制请核对完整包装。", "caution": "已查到名称、规格和品牌宣传资料；完整成分、适用部位及使用限制尚需核对包装。先了解产品，不默认推荐立即使用。", "url": "https://item.jd.com/100335539422.html", "image": "assets/care-b5-cover.png", "referenceImage": "assets/care-b5.jpg", "generatedCover": true, "evidence": "京东商品入口及现有品牌宣传图；完整包装限制待核实，封面为AI生成示意"}];
+const PAGES=['首页双入口','性别与护理部位','肤质与使用前筛查','拍照选择与引导','照片确认','毛发分析报告','候选产品与产品库','产品详情','包装核对与局部测试','脱毛膏使用指导','蜡纸使用指导','效果反馈与对比','护理记录','我的与数据隐私'];
+const NOTES=[['品牌拼贴与两个入口','首页使用完整比例品牌风格配图；选品与已有产品入口保留。','原型不上传照片；倒计时仅供交互演示。'],['性别不默认选择','按男女系列动态切换部位选项；查找部位为单选，移除背部。','改变部位使已有照片与测试反馈失效。'],['信息由用户自述','女士肤质单选或不选；男士隐藏肤质；不提供功效或类别偏好选项。','这是基础筛查，实用版须补全产品禁忌。'],['按部位划分拍照能力','拍摄前说明用途与选择权；不授权可跳过。','原型无真实相机或AI；正式开发需实现隐私承诺。'],['质量先于分析','不合格照片隐藏分析按钮。','分析失败提供重试和跳过。'],['图像展示与照片质量','展示覆盖率百分比和照片质量；可展开原图、AI标记图、二值掩膜，不展示程度分级。','AI与UI分开展示；低可信状态提供重拍和跳过。'],['脱毛选品与后续护理分开','查找结果与脱毛产品库只展示脱毛膏、蜡纸；包含男士产品。','精油、B5只在点击护理产品分类或后续护理入口后展示。'],['展示类型与全部规格','使用说明之后展示香味，可展开前中基调；护理品使用独立详情。','部位冲突不能直接进入使用。'],['每次使用前检查测试','与本次产品和部位关联，观察结束后仍需反馈。','演示快捷状态不会出现在正式用户流程。'],['不同产品绑定不同时间','三步水彩操作图随阶段展示；3／6 或 5／10 分钟绑定对应产品。','倒计时可跳过预览；跳过不代表实际已等待。'],['四步操作，无膏体计时','揭开、顺向贴、逆向撕、清洁湿巾处理残蜡。','测试观察和再次使用间隔仍保留。'],['照片对照与使用体验','展示前后覆盖率9.32%与1.15%、相对下降88%及下降8.17个百分点；不展示程度分级。','可展开前后图像识别细节；保留不可比提示，出现不适暂停采集。'],['品牌寄语与护理记录','寄语无边框无底色，始终排在全部护理记录之后；双色几何引号参照官网。','删除单条需确认。'],['数据与隐私','待完成测试在本机跨次保存，不含照片；护理记录仍仅在当前会话保存。','可分别清除测试进度和护理记录，操作前需确认。']];
+const OFFICIAL_FINDER={
+  "verified_on": "2026-10-12",
+  "source": "https://www.veet.com.cn/",
+  "classes": {
+    "6": {
+      "82": {
+        "name": "产品效果",
+        "id": "82",
+        "childs": [
+          {
+            "name": "深层脱毛",
+            "id": "102"
+          },
+          {
+            "name": "温和不伤肤",
+            "id": "134"
+          },
+          {
+            "name": "长效滋润",
+            "id": "103"
+          },
+          {
+            "name": "温和养肤",
+            "id": "105"
+          }
+        ]
+      },
+      "83": {
+        "name": "产品部位",
+        "id": "83",
+        "childs": [
+          {
+            "name": "腋下",
+            "id": "109"
+          },
+          {
+            "name": "腿部",
+            "id": "89"
+          },
+          {
+            "name": "手臂",
+            "id": "108"
+          },
+          {
+            "name": "背部",
+            "id": "110"
+          },
+          {
+            "name": "比基尼边界区域",
+            "id": "112"
+          }
+        ]
+      },
+      "113": {
+        "name": "产品类型",
+        "id": "113",
+        "childs": [
+          {
+            "name": "敏感肌肤",
+            "id": "114"
+          },
+          {
+            "name": "干性肌肤",
+            "id": "115"
+          },
+          {
+            "name": "中性肌肤",
+            "id": "116"
+          }
+        ]
+      }
+    },
+    "7": {
+      "82": {
+        "name": "产品效果",
+        "id": "82",
+        "childs": [
+          {
+            "name": "适合男士粗硬毛发",
+            "id": "107"
+          },
+          {
+            "name": "深层脱毛",
+            "id": "102"
+          },
+          {
+            "name": "长效滋润",
+            "id": "103"
+          }
+        ]
+      },
+      "83": {
+        "name": "产品部位",
+        "id": "83",
+        "childs": [
+          {
+            "name": "腋下",
+            "id": "109"
+          },
+          {
+            "name": "腿部",
+            "id": "89"
+          },
+          {
+            "name": "手臂",
+            "id": "108"
+          },
+          {
+            "name": "背部",
+            "id": "110"
+          },
+          {
+            "name": "胸部",
+            "id": "111"
+          }
+        ]
+      },
+      "113": {
+        "name": "产品类型",
+        "id": "113",
+        "childs": [
+          {
+            "name": "敏感肌肤",
+            "id": "114"
+          }
+        ]
+      }
+    }
+  },
+  "catalog": [
+    {
+      "id": "80",
+      "name": "薇婷净纯脱毛膏",
+      "name_en": "温和型",
+      "path": "jingchun/whx",
+      "big_img": "/static/uploads/2024/0000020240228860.png",
+      "create_date": "2023-01-12 14:21:15",
+      "class": "26",
+      "type": "女士脱毛"
+    },
+    {
+      "id": "79",
+      "name": "薇婷净纯脱毛膏",
+      "name_en": "保湿型",
+      "path": "jingchun/bsx1",
+      "big_img": "/static/uploads/2024/0000020240228970.png",
+      "create_date": "2023-01-11 19:09:49",
+      "class": "26",
+      "type": "女士脱毛"
+    },
+    {
+      "id": "76",
+      "name": "薇婷净纯脱毛膏",
+      "name_en": "滋润型",
+      "path": "jingchun/zrx",
+      "big_img": "/static/uploads/2024/0000020240228641.png",
+      "create_date": "2023-01-03 19:20:46",
+      "class": "26",
+      "type": "女士脱毛"
+    },
+    {
+      "id": "72",
+      "name": "薇婷奇迹焕肤精油",
+      "name_en": "脱毛护理",
+      "path": "huli/qjhfjy",
+      "big_img": "/static/uploads/2022/0000020221226157.png",
+      "create_date": "2022-12-26 15:04:31",
+      "class": "131",
+      "type": "女士脱毛"
+    },
+    {
+      "id": "71",
+      "name": "薇婷净纯脱毛蜡纸",
+      "name_en": "敏感肌肤",
+      "path": "lazhi/tmlz",
+      "big_img": "/static/uploads/2024/0000020240228224.png",
+      "create_date": "2022-12-26 12:45:55",
+      "class": "130",
+      "type": "女士脱毛"
+    },
+    {
+      "id": "70",
+      "name": "薇婷菁纯脱毛膏",
+      "name_en": "温和型",
+      "path": "jc/gxjf",
+      "big_img": "/static/uploads/2023/0000020230112755.png",
+      "create_date": "2022-12-08 16:36:56",
+      "class": "76",
+      "type": "女士脱毛"
+    },
+    {
+      "id": "69",
+      "name": "薇婷男士脱毛膏",
+      "name_en": "温和型",
+      "path": "tuomg/nswhx",
+      "big_img": "/static/uploads/2022/0000020221226742.png",
+      "create_date": "2022-11-26 14:13:47",
+      "class": "90",
+      "type": "男士脱毛"
+    }
+  ],
+  "single_condition_results": {
+    "6||109": [
+      "80",
+      "79",
+      "76",
+      "72",
+      "70"
+    ],
+    "6||89": [
+      "80",
+      "79",
+      "76",
+      "72",
+      "71",
+      "70"
+    ],
+    "6||108": [
+      "80",
+      "79",
+      "76",
+      "72",
+      "71",
+      "70"
+    ],
+    "6||110": [],
+    "6||112": [
+      "80",
+      "79",
+      "76",
+      "70"
+    ],
+    "6|114|109": [
+      "80",
+      "70"
+    ],
+    "6|114|89": [
+      "80",
+      "71",
+      "70"
+    ],
+    "6|114|108": [
+      "80",
+      "71",
+      "70"
+    ],
+    "6|114|110": [],
+    "6|114|112": [
+      "80",
+      "70"
+    ],
+    "6|115|109": [
+      "76"
+    ],
+    "6|115|89": [
+      "76"
+    ],
+    "6|115|108": [
+      "76"
+    ],
+    "6|115|110": [],
+    "6|115|112": [
+      "76"
+    ],
+    "6|116|109": [
+      "79"
+    ],
+    "6|116|89": [
+      "79"
+    ],
+    "6|116|108": [
+      "79"
+    ],
+    "6|116|110": [],
+    "6|116|112": [
+      "79"
+    ],
+    "7||109": [
+      "69"
+    ],
+    "7||89": [
+      "69"
+    ],
+    "7||108": [
+      "69"
+    ],
+    "7||110": [
+      "69"
+    ],
+    "7||111": [
+      "69"
+    ]
+  },
+  "scope": "首页功效条件不参与；女士肤质可多选或不选，部位可多选；男士不显示肤质；同组或、跨组且。"
+};
+const AREA_IDS={'腋下':'109','腿部':'89','手臂':'108','背部':'110','比基尼边界':'112','胸部':'111'};
+let S={findAreas:[],findSkins:[],catalogAll:false,page:0,entry:'choose',gender:'',area:'',leg:'小腿',skin:'',kind:'any',damage:'',reaction:'',interval:'',experience:'',prior:'',method:'',lastTime:'',lastProduct:'',intervalConfirm:'',timerStart:0,timerOffset:0,timerEnded:false,photo:false,quality:'good',low:false,product:null,size:'',packageChecked:false,test:'new',phase:'apply',waxStep:0,comparison:true,afterPhoto:false,rating:'',discomfort:'',remark:'',query:'',filter:'all',records:[],history:[],galleryDemo:false};let view='prototype';let toastTimer;
+const esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const product=()=>PRODUCTS.find(p=>p.id===S.product);
+// Shared example values for the UI prototype; AI is showcased separately.
+const COVERAGE_EXAMPLE={before:9.32,after:1.15};
+const coverageDifference=(before,after)=>({points:before-after,relative:before>0?(before-after)/before*100:null});
+const formatCoverage=n=>Number(n.toFixed(2)).toString();
+const formatRelative=n=>Math.round(n).toString();
+function coverageComparison(){const {before,after}=COVERAGE_EXAMPLE;const delta=coverageDifference(before,after);return `<div class="coverageSummary"><div class="coveragePair"><div class="coverageCell"><div class="coverageLabel">脱毛前覆盖率</div><div class="coverageValue">${formatCoverage(before)}%</div></div><div class="coverageCell"><div class="coverageLabel">脱毛后覆盖率</div><div class="coverageValue">${formatCoverage(after)}%</div></div></div><div class="coverageChange"><b>可见毛发覆盖率相对下降</b><div class="metric">${formatRelative(delta.relative)}%</div><p class="muted">覆盖率由 ${formatCoverage(before)}% 降至 ${formatCoverage(after)}%，下降 ${formatCoverage(delta.points)} 个百分点。</p></div><p class="muted">仅反映同一区域可见毛发图像变化。</p></div>`}
+
+const specUnit=value=>`<span class="specUnit">${esc(value)}</span>`;
+const specList=values=>values.map(specUnit).join(' / ');
+const recordSpecs=value=>esc(value).replace(/\d+(?:\.\d+)?\s*(?:ml|片)/gi,unit=>`<span class="specUnit">${unit}</span>`);
+const skinImage=(n=12,label='局部图像示意')=>`<div class="skin">${Array.from({length:n},(_,i)=>`<i class="hair" style="left:${12+i*29%78}%;top:${12+i*19%63}%"></i>`).join('')}<div class="frame"></div><span class="skinLabel">${label}</span></div>`;
+const primary=(label,action,disabled=false)=>`<button class="primary" onclick="${action}" ${disabled?'disabled':''}>${label}</button>`;
+const secondary=(label,action)=>`<button class="secondary" onclick="${action}">${label}</button>`;
+function choices(key,opts){return `<div class="selection">${opts.map(([v,t])=>`<button class="${S[key]===v?'selected':''}" onclick="pick('${key}','${v}')" aria-pressed="${S[key]===v}">${t}</button>`).join('')}</div>`}
+function radios(title,key,opts){return `<div class="field ${key==='damage'?'damageQuestion':''}"><b>${title}</b>${opts.map(([v,t])=>`<label><input type="radio" name="${key}" value="${v}" ${S[key]===v?'checked':''} onchange="S.${key}=this.value${key==='discomfort'?';updateAftercare()':['damage','reaction'].includes(key)?';invalidate()':''}"> ${t}</label>`).join('')}</div>`}
+function aiReviewPanel(mode,pair){const labels={original:'原图',marked:'AI 标记图',mask:'二值掩膜'};return `<div class="aiViewPanel ${pair?'pair':''}">${(pair?[['护理前',12],['护理后',3]]:[['局部图像',12]]).map(([label,n])=>`<figure class="${mode}">${skinImage(n,label)}<figcaption>${label} · ${labels[mode]}</figcaption></figure>`).join('')}</div><p class="aiReviewHint">${mode==='marked'?'<span class="aiKey hairKey"></span>识别到的毛发　<span class="aiKey areaKey"></span>皮肤分析区域':mode==='mask'?'白色表示识别到的毛发，深色为其余区域。':'查看用于分析的局部图像。'}<br>图像仅作识别细节示意。</p>`}
+function aiReview(pair=false){return `<details class="aiReview"><summary>查看 AI 识别细节</summary><div class="aiReviewBody"><div class="aiViewTabs" role="group" aria-label="识别图像查看方式">${[['original','原图'],['marked','AI 标记图'],['mask','二值掩膜']].map(([mode,label])=>`<button type="button" aria-pressed="${mode==='original'}" onclick="selectAiReview(this,'${mode}',${pair})">${label}</button>`).join('')}</div><div class="aiViewContent">${aiReviewPanel('original',pair)}</div></div></details>`}
+function selectAiReview(button,mode,pair){const review=button.closest('.aiReview');review.querySelectorAll('.aiViewTabs button').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));review.querySelector('.aiViewContent').innerHTML=aiReviewPanel(mode,pair)}
+function setError(msg){const e=document.getElementById('formError');if(e)e.textContent=msg;else toast(msg)}
+
+const TEST_PROGRESS_KEY='veet-v27-pending-test-v1',OBSERVATION_MS=24*60*60*1000;
+const TEST_FIELDS=['entry','gender','area','leg','skin','findAreas','findSkins','product','size','damage','reaction','interval','intervalConfirm','prior','method','lastTime','lastProduct','packageChecked','test','observationStart'];
+let progressStorageError=false,pendingTest=loadTestProgress();
+function loadTestProgress(){try{const raw=localStorage.getItem(TEST_PROGRESS_KEY);if(!raw)return null;const d=JSON.parse(raw);if(d.version!==1||!d.state||!PRODUCTS.some(p=>p.id===d.state.product)||!['女','男'].includes(d.state.gender)||!Object.hasOwn(AREA_IDS,d.state.area)||!['new','waiting','feedback','blocked'].includes(d.state.test))return null;const st={};for(const k of TEST_FIELDS)if(Object.hasOwn(d.state,k))st[k]=d.state[k];if(!Array.isArray(st.findAreas)||!Array.isArray(st.findSkins))return null;if(st.test!=='new'&&(!Number.isFinite(st.observationStart)||st.observationStart<=0))return null;return {version:1,state:st,savedAt:d.savedAt}}catch{return null}}
+function clearTestProgress(){pendingTest=null;try{localStorage.removeItem(TEST_PROGRESS_KEY);progressStorageError=false}catch{progressStorageError=true}S.observationStart=0}
+function persistTestProgress(){if(S.galleryDemo||S.page!==8||!product()||!S.area||!['new','waiting','feedback','blocked'].includes(S.test))return;const state={};for(const k of TEST_FIELDS)state[k]=S[k]??(k==='observationStart'?0:'');pendingTest={version:1,state,savedAt:Date.now()};try{localStorage.setItem(TEST_PROGRESS_KEY,JSON.stringify(pendingTest));progressStorageError=false}catch{progressStorageError=true}}
+function observationReady(state=S){return Number.isFinite(state.observationStart)&&state.observationStart>0&&Date.now()-state.observationStart>=OBSERVATION_MS}
+function observationEnd(state=S){return new Date(state.observationStart+OBSERVATION_MS).toLocaleString('zh-CN',{month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false})}
+function observationRemaining(){const minutes=Math.max(0,Math.ceil((S.observationStart+OBSERVATION_MS-Date.now())/60000));return Math.floor(minutes/60)+' 小时 '+minutes%60+' 分钟'}
+function pendingTestCard(){if(!pendingTest)return '';const st=pendingTest.state,p=PRODUCTS.find(p=>p.id===st.product),ready=observationReady(st);const blocked=st.test==='blocked';const status=blocked?'已记录不适或暂不确定':!st.observationStart?'已保存测试准备进度':ready?'观察时间已到，请反馈皮肤情况':'观察中 · 预计 '+observationEnd(st)+' 结束';const label=blocked?'查看测试反馈':!st.observationStart?'继续测试':ready?'填写测试反馈':'查看观察进度';return `<section class="card pale pendingTestCard"><span class="badge">待完成的局部测试</span><h3>${esc(p.name)} ${esc(p.variant)}</h3><p class="muted">${esc(st.area)}${st.size?' · '+esc(st.size):''}<br>${status}</p>${progressStorageError?'<p class="notice">当前无法保存到本机；关闭页面可能丢失进度。</p>':''}${primary(label,'resumeTestProgress()')}</section>`}
+function resumeTestProgress(){if(!pendingTest)return;const st=pendingTest.state;Object.assign(S,st,{page:0,history:[],galleryDemo:false,careProduct:null,careReturn:null,catalogAll:false,filter:'all',query:'',photo:false,afterPhoto:false,timerStart:0,timerOffset:0,timerEnded:false,phase:'apply'});if(S.test==='waiting'&&observationReady())S.test='feedback';navigate(8)}
+function beginObservation(){if(!S.packageChecked||S.intervalConfirm!=='yes'||suitability(product())[0]!=='supported')return setError('请先核对包装、使用间隔与当前皮肤状态。');S.observationStart=Date.now();S.test='waiting';render();toast(progressStorageError?'本机保存失败，请勿依赖退出后恢复':'测试进度已保存，可以退出后再回来')}
+function openObservationFeedback(){S.test='feedback';render()}
+function testSaveNotice(){if(S.galleryDemo)return '<p class="muted">当前为设计示例，不写入待完成测试存档。</p>';return `<div class="notice pink">${progressStorageError?'当前无法保存到本机，退出后可能无法找回进度。':'测试进度已保存在本机，可以退出小程序。'}<br>再次打开后，在首页「待完成的局部测试」中点击继续，即可回到这里。</div>${secondary('返回首页','navigate(0)')}${secondary('皮肤状态有变化，返回修改','recheckTestState()')}`}
+function recheckTestState(){clearTestProgress();invalidate();S.damage='';S.reaction='';navigate(2)}
+function discardPendingTest(){showModal('清除待完成测试','清除后无法继续此项测试；再次使用前需重新核对并完成测试。','确认清除',()=>{clearTestProgress();S.test='new';S.packageChecked=false;S.product=null;S.history=[];navigate(13);toast('已清除待完成测试')},'返回')}
+function startNewCare(entry){if(!pendingTest||S.galleryDemo)return start(entry);showModal('已有待完成的局部测试','目前保留一项待完成测试。开始新的护理会清除这项进度。','开始新的护理',()=>{clearTestProgress();start(entry)},'继续原测试',()=>resumeTestProgress())}
+setInterval(()=>{if(view!=='prototype')return;if(S.page===8&&S.test==='waiting'){if(observationReady()){S.test='feedback';render()}else{const el=document.getElementById('observationRemaining');if(el)el.textContent=observationRemaining()}}else if(S.page===0&&pendingTest){const el=document.querySelector('.pendingTestCard');if(el)el.outerHTML=formatSmallText(pendingTestCard())}},30000);
+
+function invalidate(){if(!S.galleryDemo)clearTestProgress();S.observationStart=0;S.timerStart=0;S.timerOffset=0;S.timerEnded=false;S.packageChecked=false;S.intervalConfirm='';S.interval='';S.test='new';S.photo=false;S.afterPhoto=false;S.phase='apply';S.waxStep=0}
+function pick(key,value){if(['area','gender','leg'].includes(key)&&S[key]!==value){invalidate();S.damage='';S.reaction=''}if(key==='gender'&&S.gender!==value){S.findAreas=[];S.findSkins=[];S.area='';S.skin=''}S[key]=value;render()}
+function navigate(page){S.history.push(S.page);S.page=page;render()}
+function back(){S.page=S.history.pop()??0;render()}
+function start(entry){S.aftercareReturn=null;S.observationStart=0;S.careProduct=null;S.careReturn=null;const records=S.records;S={...S,findAreas:[],findSkins:[],catalogAll:entry==='owned',page:0,entry,gender:'',area:'',leg:'小腿',skin:'',kind:'any',damage:'',reaction:'',interval:'',experience:'',prior:'',method:'',lastTime:'',lastProduct:'',intervalConfirm:'',timerStart:0,timerOffset:0,timerEnded:false,photo:false,quality:'good',low:false,product:null,size:'',packageChecked:false,test:'new',phase:'apply',waxStep:0,comparison:true,afterPhoto:false,rating:'',discomfort:'',remark:'',query:'',filter:'all',history:[],galleryDemo:false,records};navigate(entry==='owned'?6:1)}
+function profileComplete(){return Boolean(S.gender&&S.area)}
+function finderAreaOptions(){if(!S.gender)return [];return OFFICIAL_FINDER.classes[S.gender==='男'?'7':'6']['83'].childs.filter(x=>x.name!=='背部').map(x=>[x.name==='比基尼边界区域'?'比基尼边界':x.name,x.name])}
+function finderChoices(key,opts){return `<div class="selection">${opts.map(([v,t])=>`<button class="${(S[key]||[]).includes(v)?'selected':''}" aria-pressed="${(S[key]||[]).includes(v)}" onclick="toggleFinder('${key}','${v}')">${t}</button>`).join('')}</div>`}
+function toggleFinder(key,value){invalidate();S.damage='';S.reaction='';S[key]=key==='findSkins'&&(S[key]||[]).includes(value)?[]:[value];if(key==='findAreas')S.area=S.findAreas[0]||'';if(key==='findSkins')S.skin=({'114':'敏感','115':'干性','116':'中性'})[S.findSkins[0]]||'';render()}
+function finderMatchesId(id){if(!S.gender)return false;const areas=S.findAreas?.length?S.findAreas:[S.area];if(!areas[0])return false;const skins=S.gender==='女'&&S.findSkins?.length?S.findSkins:[''];return skins.some(k=>areas.some(a=>(OFFICIAL_FINDER.single_condition_results[[S.gender==='男'?'7':'6',k,AREA_IDS[a]].join('|')]||[]).includes(id)))}
+function setCatalogAll(all){S.catalogAll=all;S.filter='all';S.query='';render()}
+function catalogMarkup(){if(S.filter==='care')return careCatalog();let entries=OFFICIAL_FINDER.catalog.map(d=>PRODUCTS.find(p=>p.id===d.id)).filter(Boolean).filter(p=>S.catalogAll||finderMatchesId(p.id));if(['cream','wax'].includes(S.filter))entries=entries.filter(p=>p.kind===S.filter);if(S.filter==='men')entries=entries.filter(p=>p.gender==='男');if(S.query)entries=entries.filter(p=>(p.name+(p.variant||'')).includes(S.query));return entries.length?entries.map(productCard).join(''):catalogResults([])}
+function careAreaChoices(p){const search=S.findAreas?.length?S.findAreas:[S.area];const options=search.filter(a=>p.areas.includes(a));return options.length>1?`<div class="field"><b>本次实际护理部位（单选）</b><p class="muted">本产品匹配多个查找部位；本次测试、照片与指导仅关联下方一个部位。</p>${choices('area',options.map(a=>[a,a]))}</div>`:''}
+function profileNext(){if(!S.gender||!S.findAreas?.length)return setError('请选择女士或男士，并选择本次查找部位。');S.area=S.findAreas.includes(S.area)?S.area:S.findAreas[0];navigate(2)}
+function screeningNext(){if(!S.damage||!S.reaction)return setError('请完成使用前问题。');if(S.damage!=='no')return showModal('请先暂缓本次脱毛','你选择了有上述情况，或暂时无法确认。官网包装明确禁止在破损、晒伤等列明的皮肤状态下使用；蜡纸还要求皮肤未受刺激。如有红肿、刺痛或其他不适，请先暂缓，并核对手中产品的完整使用限制。','查看产品库',()=>navigate(6),'返回修改');if(S.reaction!=='no')return showModal('请先核对既往不良反应','你选择了曾有不良反应，或暂不确定。官网包装明确禁止用于曾对相应脱毛膏或蜡纸产生不良反应的皮肤。若暂不确定，请先核对既往情况和本次包装；不要直接把另一款产品视为适用，必要时咨询医生。','查看产品库',()=>navigate(6),'返回修改');navigate(3)}
+function photoSupported(){return S.area==='手臂'||(S.area==='腿部'&&S.leg==='小腿')}
+function nextAfterPhoto(){navigate(S.entry==='owned'&&S.product?7:6)}
+function takePhoto(){S.photo=true;S.quality='good';navigate(4)}
+function skipPhoto(){S.photo=false;S.afterPhoto=false;nextAfterPhoto()}
+function matching(p){return finderMatchesId(p.id)}
+function suitability(p){if(!profileComplete())return ['incomplete','请先填写护理部位与使用信息。'];if(p.gender!==S.gender)return ['check','所选女士／男士系列与本产品不同，需要核对适用说明。'];if(p.pendingAreas?.includes(S.area))return ['conflict','官网部位栏与包装图不一致，请先核对手中包装；原型暂停该部位指导。'];if(!p.areas.includes(S.area))return ['unlisted','该部位未在本产品详情适用范围中列出，暂不进入使用指导。'];if(S.gender==='女'&&S.findSkins?.length&&!finderMatchesId(p.id))return ['check','本产品未出现在所选官网查找条件的结果中，请先核对说明或调整条件。'];if([S.damage,S.reaction].some(x=>x!=='no'))return ['check','使用前筛查尚需确认，暂不进入使用指导。'];return ['supported','已核对所选系列与本次护理部位；仍需确认实际包装、完整使用限制及局部测试。']}
+function selectProduct(id){S.careProduct=null;S.timerStart=0;S.timerOffset=0;S.timerEnded=false;if(S.product!==id){if(!S.galleryDemo)clearTestProgress();S.packageChecked=false;S.intervalConfirm='';S.interval='';S.test='new';S.afterPhoto=false;S.phase='apply';S.waxStep=0}S.product=id;S.size='';const selected=product();const area=(S.findAreas||[]).find(a=>selected.areas.includes(a));if(area&&S.area!==area){invalidate();S.area=area;S.damage='';S.reaction=''}navigate(7)}
+function detailNext(){const p=product();if(!profileComplete())return navigate(1);const [status,msg]=suitability(p);if(status!=='supported')return showModal('暂不进入使用指导',msg,'查看产品库',()=>navigate(6),'返回修改',()=>navigate(2));navigate(8)}
+function productCard(p){return `<div class="card"><div class="product"><img src="${p.image}" alt="${p.name} ${p.variant} 官网包装示意"><div><span class="badge gray">${p.kind==='wax'?'蜡纸':'脱毛膏'} · 官网${p.gender==='男'?'男士':'女士'}系列</span><h3>${p.name}<br>${p.variant}</h3><div class="muted">${p.skin}肌肤 · ${specList(p.sizes)}</div></div></div><div class="chips">${p.areas.map(a=>`<span class="chip">${a}</span>`).join('')}</div>${p.pendingAreas?'<div class="muted">腋下、比基尼边界资料有差异，需核验。</div>':''}${primary('查看产品详情',`selectProduct('${p.id}')`)}</div>`}
+
+
+
+function creamArtwork(step){const labels=['涂抹覆盖毛发','检查小块后刮除','清水冲净'];return `<figure class="creamArt"><img src="assets/cream-watercolor-${step}.png" alt="${labels[step-1]}操作示意"><figcaption>STEP 0${step} · ${labels[step-1]}</figcaption></figure>`}
+function creamAllSteps(){return `<details class="creamAllSteps"><summary>查看完整三步操作图</summary>${[1,2,3].map(creamArtwork).join('')}</details>`}
+function fragranceSection(p){if(!p.fragrance)return '';const f=p.fragrance;return `<section class="fragrance"><h3>香味</h3><p>${esc(f.name)}</p>${f.version?`<p class="muted">${esc(f.version)}</p>`:''}<details><summary>查看前调、中调与基调</summary><dl><dt>前调 · TOP</dt><dd>${esc(f.top)}</dd><dt>中调 · MIDDLE</dt><dd>${esc(f.middle)}</dd><dt>基调 · BASE</dt><dd>${esc(f.base)}</dd></dl><p class="muted">香调描述不等于完整成分表；以手中包装版本为准。</p></details></section>`}
+function careCard(c){return `<div class="card careCard"><div class="product"><img src="${c.image}" alt="${esc(c.name)}${c.generatedCover?'包装示意图':'包装图'}"><div><span class="badge gray">${c.id==='b5'?'京东商品资料 · 非官网条目':'官网脱毛护理 · 可选'}</span><h3>${esc(c.name)}</h3><p class="muted"><span class="specUnit">${esc(c.size)}</span> · ${esc(c.purpose)}</p></div></div><p class="muted">${esc(c.short)}</p>${secondary('了解产品',`openCare('${c.id}')`)}</div>`}
+function careCatalog(){const list=CARE_PRODUCTS.filter(c=>!S.query||(c.name+c.purpose).includes(S.query));return `<div class="notice pink">用于了解后续滋润护理。请先确认肌肤完整、无不适并已清洁，再核对脱毛产品与护理产品包装。</div>${list.map(careCard).join('')||'<p class="muted">没有找到相关护理产品。</p>'}`}
+function browseCare(){S.aftercareReturn=S.page;S.careReturn=S.page;S.filter='care';S.query='';navigate(6)}
+function openCare(id){if(S.page!==7)S.careReturn=S.page;S.careProduct=id;navigate(7)}
+function closeCare(){S.careProduct=null;navigate(S.careReturn??6)}
+function careDetail(id){const c=CARE_PRODUCTS.find(c=>c.id===id);if(!c)return '<h2>请选择护理产品</h2>'+secondary('返回产品库','navigate(6)');return `<span class="badge">${c.id==='b5'?'京东商品资料 · 非官网条目':'官网脱毛护理 · 可选'}</span><h2>${esc(c.name)}</h2><img class="detailimg" src="${c.image}" alt="${esc(c.name)}${c.generatedCover?'包装示意图':'包装图'}">${c.generatedCover?'<p class="muted">包装示意图；实际外观请以商品实物为准。</p>':''}<b>产品规格</b><div class="chips"><span class="chip specUnit">${esc(c.size)}</span></div><div class="card"><h3>产品类别</h3><p>脱毛后护理 · 可选</p><h3>护理用途</h3><p>${esc(c.purpose)}</p><h3>什么时候考虑使用</h3><p class="muted">已完成清洁，肌肤完整且无不适，并确认脱毛产品与本品包装允许后续护理时，可按说明选择使用。</p>${c.areas?`<h3>官网列出部位</h3><div class="chips">${c.areas.map(x=>`<span class="chip">${x}</span>`).join('')}</div>`:''}<h3>使用前留意</h3><p class="muted">${esc(c.caution)}</p></div><div class="notice">有破损、红肿、刺痛或拿不准时，先停止脱毛并处理不适，不直接尝试新的护理品。</div>${c.id==='b5'?`<details><summary>查看产品包装参考</summary><img class="carePoster" src="${c.referenceImage||c.image}" alt="原B5冰感舒缓凝霜品牌宣传图参考"><p class="muted">图片为品牌宣传资料，个人使用感受可能不同。具体使用方法及限制请核对完整包装。</p></details>`:''}<a href="${c.url}" target="_blank" rel="noopener">${c.id==='oil'?'查看官网产品说明':'查看京东商品'} ↗</a>${secondary('返回','closeCare()')}<p class="muted">是否使用护理品不影响保存护理记录。</p>`}
+function aftercarePanel(){if(S.discomfort&&S.discomfort!=='无')return `<div class="card pale aftercarePanel"><h3>先处理当前不适</h3><p class="muted">暂不推荐新的护理品。${discomfortAdvice(product())}</p></div>`;return `<section class="aftercarePanel"><h3>后续滋润护理（可选）</h3><p class="muted">${S.discomfort==='无'?'确认肌肤完整、已完成清洁，并核对包装允许后续护理后，可了解以下产品。':'先完成上方不适反馈；肌肤完整、无不适并已清洁时，可按包装了解后续护理。'}</p>${S.discomfort==='无'?CARE_PRODUCTS.map(careCard).join(''):''}<div class="careLinks"><button onclick="browseCare()">浏览护理产品</button></div><p class="muted">护理品无需默认选中，也不影响保存记录。</p></section>`}
+function updateAftercare(){const el=document.getElementById('aftercareSlot');if(el)el.innerHTML=formatSmallText(aftercarePanel())}
+
+function phraseText(text){if(!/[，。；！？：]/.test(text))return text;return (text.match(/[^，。；！？：]+(?:[，。；！？：]+[”’」』）]?|$)/g)||[text]).map(x=>`<span class="phrase">${x}</span>`).join('')}
+function phraseContent(html){return html.split(/(<[^>]+>)/g).map(x=>x.startsWith('<')?x:phraseText(x)).join('')}
+function formatSmallText(html){html=inlinePrototypeImages(html);html=html.replace(/(<div><b>[^<]*<\/b>)<p>/g,'$1<p class="muted">');return html.replace(/(<p\b[^>]*>)([\s\S]*?)(<\/p>)/g,(_,a,b,c)=>a+(/muted|aiReviewHint/.test(a)&&!a.includes('manualLines')?phraseContent(b):b)+c).replace(/(<div class="notice[^"\n]*">)([^<]*)(<\/div>)/g,(_,a,b,c)=>a+phraseText(b)+c)}
+function discomfortAdvice(p){return p&&p.kind==='wax'?'如有灼热感或刺痛，立即用随附湿巾去除残蜡，再用冷水冲洗；如不适持续，及时就医。':'如有刺痛或灼热感，立即去除脱毛膏并用冷水冲洗；如不适持续，立即就医。'}
+function blockTest(){S.test='blocked';render()}
+function returnToTestFeedback(){S.test=S.galleryDemo||observationReady()?'feedback':'waiting';navigate(8)}
+function stopForDiscomfort(){S.timerStart=0;S.timerEnded=true;S.test='blocked';S.phase='rinse';navigate(8)}
+function pausePanel(p){return `<div class="card pale pauseCard"><h3>请先暂停本次使用</h3><p class="muted">你选择了有不适或暂不确定。若确有不适，请勿继续使用；若暂不确定，请先暂停并核对皮肤状态及产品说明。</p><p class="muted">${discomfortAdvice(p)}</p><p class="muted">处理后短时间内皮肤可能更敏感，请勿抓挠。</p><p class="muted manualLines">若为误触，可返回修改；<br>若确有不适，请先停止使用并处理。</p><details><summary>查看包装中的其他注意事项</summary><p class="muted">建议使用后至少24小时再使用止汗、香水类产品，或进行人工日光浴、游泳及日光浴。</p><p class="muted">如产品误入眼睛，立即用大量清水冲洗并就医；如不慎误服，立即就医并出示包装。请保留外包装，核对全部注意事项。</p></details></div>${primary('返回修改','returnToTestFeedback()')}${secondary('查看产品库','navigate(6)')}${secondary('返回产品详情','navigate(7)')}`}
+
+function historyPick(key,value){const top=document.getElementById('screen').scrollTop;S[key]=value;if(key==='prior'){S.method='';S.lastTime='';S.lastProduct='';S.intervalConfirm=''}resolveInterval();render();document.getElementById('screen').scrollTop=top}
+function historyRadio(title,key,opts){return radios(title,key,opts).replaceAll(`onchange="S.${key}=this.value${key==='discomfort'?';updateAftercare()':['damage','reaction'].includes(key)?';invalidate()':''}"`,`onchange="historyPick('${key}',this.value)"`)}
+function resolveInterval(){S.interval=S.intervalConfirm==='yes'?'no':S.intervalConfirm==='no'?'yes':'unknown'}
+
+function intervalFields(){return `<div class="card pale"><h3>确认再次使用间隔</h3>${historyRadio('距上次同一部位脱毛，是否已满足本次产品要求的间隔？','intervalConfirm',[['yes','已核对，满足要求'],['no','尚未满足或暂不确定']])}<p class="muted">脱毛膏、蜡纸一般参考至少间隔72小时。请自行核对上次及本次产品包装；要求更长时以包装为准，皮肤尚未恢复时请暂缓。</p><p class="muted manualLines"><span class="manualSegment">本部位首次脱毛，可在确认包装无相关限制后</span><br><span class="manualSegment">选择<span class="specUnit">“已核对，满足要求”</span>。</span></p><details><summary>其他脱毛方式如何核对</summary><p class="muted">若上次使用剃刀、电动剃毛器或蜜蜡脱毛，请核对上次脱毛后的注意事项，以及本次产品的使用间隔要求。激光、光子或家用IPL疗程请按治疗机构或设备说明确认能否使用本次产品，不直接套用72小时。</p></details></div>`}
+function confirmPackage(){resolveInterval();if(!S.intervalConfirm)return setError('请确认同一部位的使用间隔。');if(S.intervalConfirm!=='yes')return showModal('建议暂缓本次脱毛','你选择了尚未满足间隔或暂不确定。请先核对上次护理要求与本次产品包装，满足间隔且皮肤恢复后再考虑使用。','查看产品库',()=>navigate(6),'返回修改');S.packageChecked=true;render()}
+const PHOTO_PRIVACY='只处理你主动拍摄或选择的护理局部照片，用于本次毛发分析，以及你主动选择的本次前后对比。不读取其他相册内容，不用于广告或模型训练，也不会自动保存到护理记录或公开展示。拍照分析是可选项；你可以拒绝授权或跳过拍照，继续查看产品和使用说明。';
+function requestPhoto(){showModal('照片用途与权限',PHOTO_PRIVACY,'同意并继续',()=>takePhoto(),'暂不授权，跳过拍照',()=>skipPhoto())}
+function clockText(seconds){seconds=Math.max(0,Math.ceil(seconds));return String(Math.floor(seconds/60)).padStart(2,'0')+':'+String(seconds%60).padStart(2,'0')}
+function elapsedSeconds(){return S.timerOffset+(S.timerStart?(Date.now()-S.timerStart)/1000:0)}
+function timerCard(p){const target=S.phase==='limit'?p.maximum:p.check;return `<div class="timerCard"><span class="badge">护理倒计时</span><p>${S.phase==='limit'?'距离总时长上限':'距离首次检查'}</p><div class="clock" id="creamTime">${clockText(target*60-elapsedSeconds())}</div><p class="muted" id="elapsedLabel">累计时间 ${clockText(elapsedSeconds())} · 总上限 ${p.maximum}:00</p>${!S.timerStart?primary('开始倒计时','startCreamTimer()'):''}${secondary(S.phase==='limit'?'跳过等待，查看清除':'跳过倒计时，预览检查','skipCreamTimer()')}<p class="muted">跳过仅预览下一界面，不代表实际已等待。<br>切换页面不重置累计时间。</p></div>`}
+function startCreamTimer(){if(!S.timerStart&&!S.timerEnded)S.timerStart=Date.now();render()}
+function skipCreamTimer(){const p=product();if(S.phase==='limit'){finishCream();return}S.timerOffset=p.check*60;S.timerStart=Date.now();S.phase='check';render()}
+function finishCream(){S.timerEnded=true;S.timerStart=0;S.phase='rinse';render()}
+function tickCream(){if(!S.timerStart||S.timerEnded||!product())return;const p=product(),elapsed=elapsedSeconds();if(elapsed>=p.maximum*60){S.timerStart=0;S.timerEnded=true;S.phase='rinse';if(view==='prototype'&&S.page===9){render();toast('已达总时长上限：查看清除与清洗')}return}if(elapsed>=p.check*60&&S.phase==='apply'){S.phase='check';if(view==='prototype'&&S.page===9)render()}if(view==='prototype'&&S.page===9){const el=document.querySelector('#screen #creamTime');if(el)el.textContent=clockText((S.phase==='limit'?p.maximum:p.check)*60-elapsed);const label=document.querySelector('#screen #elapsedLabel');if(label)label.textContent='累计时间 '+clockText(elapsed)+' · 总上限 '+p.maximum+':00'}}
+setInterval(tickCream,250);
+
+function draft(page){let p=product()??PRODUCTS[0],s='';if(page===7&&S.careProduct)return formatSmallText(careDetail(S.careProduct));if([9,10].includes(page)&&S.test!=='passed')return formatSmallText(`<h2>先确认使用前测试</h2>${S.test==='blocked'?pausePanel(p):'<p class="muted">请返回使用前确认，核对并填写测试反馈。</p>'+primary('返回修改','navigate(8)')}`);
+if(page===0)s=`<span class="badge">个性化脱毛指导</span><h2>让每次护理<br>更有把握</h2><p class="muted">选对产品，按说明护理，记录前后变化。</p><div class="card pale">选择方案 → 使用指导 → 效果记录</div><figure class="homeHero"><img src="assets/home-brand-collage.png" width="1536" height="1024" alt="草帽女士与冲浪男士、带玫红描边的埃菲尔铁塔和凯旋门组成的海岸拼贴" decoding="async"></figure>${pendingTestCard()}${primary('帮我选择产品',"startNewCare('choose')")}${secondary('我已经有产品',"startNewCare('owned')")}<div class="card"><h3>我的护理记录</h3><p class="muted">${S.records.length?'已有 '+S.records.length+' 条护理记录':'完成护理后，在这里回看你的记录。'}</p><button class="textbtn" onclick="navigate(12)">查看记录 ›</button></div><p class="muted">按具体产品包装说明使用。</p>`;
+if(page===1)s=`<span class="badge gray">${S.entry==='owned'?'我已有产品':'帮我选产品'}</span><h2>选择系列与查找部位</h2>${S.product?`<p class="muted">已选：${p.name} ${p.variant}</p>`:''}<div class="field"><b>产品系列</b>${choices('gender',[['女','女士'],['男','男士']])}</div>${S.gender?`<div class="field"><b>查找部位</b>${finderChoices('findAreas',finderAreaOptions())}</div><p class="muted">请选择本次准备脱毛的部位。</p>`:'<p class="muted">请选择女士或男士，查看对应的部位选项。</p>'}<div class="error" id="formError"></div>${primary('继续','profileNext()')}`;
+if(page===2)s=`<h2>查找条件与使用前筛查</h2>${S.gender==='女'?`<b>肤质条件</b>${finderChoices('findSkins',[['114','敏感肌肤'],['115','干性肌肤'],['116','中性肌肤']])}<p class="muted">暂不确定可不选，不限制肤质条件。</p><details class="skinHelp card pale"><summary>如何选择肤质？</summary><p class="muted">请参考本次脱毛部位平时的状态：</p><p class="muted"><b>敏感肌肤：</b>日常容易因护肤品、摩擦等出现刺激或不适。</p><p class="muted"><b>干性肌肤：</b>平时容易干燥、紧绷或起皮。</p><p class="muted"><b>中性肌肤：</b>平时较稳定，没有明显干燥或油腻感。</p><p class="muted">敏感与干燥可能同时存在；拿不准时可暂不选择肤质。</p><p class="muted">当前有破皮、红肿、刺痛等情况，请在下方如实填写。</p><p class="muted">仅帮助描述日常状态，不作为肤质诊断。</p><p class="muted">参考资料（英文）：<br><a href="https://www.aad.org/public/everyday-care/skin-care-basics/care/skin-care-budget" target="_blank" rel="noopener">美国皮肤科学会：常见肤质说明 ↗</a><br><a href="https://www.aad.org/public/everyday-care/skin-care-basics/dry/dermatologists-tips-relieve-dry-skin" target="_blank" rel="noopener">美国皮肤科学会：干燥与刺激表现 ↗</a><br><a href="https://www.uab.edu/news/news-you-can-use/how-to-approach-skin-care-according-to-your-skin-type" target="_blank" rel="noopener">UAB：不同肤质的日常特点 ↗</a></p></details>`:'<p class="muted">官网男士选品不设置肤质选项，按所选部位查找。</p>'}${radios('该部位现在有破皮、红肿、刺痛、晒伤或其他不适吗？','damage',[['no','没有上述情况'],['yes','有上述情况，或暂时无法确认']])}${radios('使用脱毛产品是否曾有不良反应','reaction',[['no','否或未使用过'],['yes','是或不确定']])}<p class="muted">筛查针对本次实际护理部位：${esc(S.area)}。多部位护理需分别核对，照片不能判断皮肤耐受。</p><div class="error" id="formError"></div>${primary('继续','screeningNext()')}`;
+if(page===3)s=`${S.area==='腿部'?'<b>本次拍照范围</b>'+choices('leg',[['小腿','小腿'],['其他腿部','其他腿部']]):''}<h2>${photoSupported()?'拍摄'+(S.area==='腿部'?'小腿':S.area)+'局部':'按说明继续护理'}</h2>${photoSupported()?`<p class="muted">拍照分析是可选步骤，你也可以直接查看产品说明。</p>${skinImage(12)}<div class="row"><div class="card pale">均匀光线</div><div class="card pale">对齐区域</div></div><p class="muted">不开美颜，只拍护理局部；拍摄前可查看照片用途与权限。</p>${primary('拍摄局部照片','requestPhoto()')}${secondary('跳过拍照，继续','skipPhoto()')}`:`<div class="card pale"><h3>${esc(S.area)}</h3><p class="muted">${S.area==='比基尼边界'?'本部位不采集照片。请按具体产品说明确认边界范围。':'当前提供产品说明指导，暂不进行 AI 量化。'}</p></div>${primary('继续查看护理方案','skipPhoto()')}`}${photoSupported()?`<button class="textbtn" onclick="requestPhoto()">照片用途与权限</button>`:''}`;
+if(page===4)s=`<span class="badge">局部照片</span><h2>确认照片</h2>${skinImage(12)}<div class="card">护理部位：${esc(S.area)}<br>照片质量：${S.quality==='good'?'良好':'模糊，暂不能分析'}</div>${S.quality!=='good'?'<div class="notice">请保持镜头稳定，调整光线后重新拍摄。</div>':''}${primary('确认并分析',"S.low=false;navigate(5)",S.quality!=='good')}${secondary('重新拍摄','navigate(3)')}<button class="textbtn" onclick="S.quality=S.quality==='good'?'bad':'good';render()">切换照片质量状态</button><br><button class="textbtn" onclick="showModal('分析失败','暂时无法完成分析。可以重试，也可以跳过 AI 查看产品说明。','跳过 AI',()=>skipPhoto())">查看分析失败状态</button>`;
+if(page===5)s=`<span class="badge">毛发分析</span><h2>你的毛发分析</h2>${skinImage(12,'可见毛发分布示意')}${S.low?'<div class="notice">暂时无法可靠分析。请重拍，或跳过 AI 查看产品说明。</div>':`<div class="coverageReport"><div class="card pale"><div class="coverageLabel">脱毛前可见毛发覆盖率</div><div class="metric">${formatCoverage(COVERAGE_EXAMPLE.before)}%</div></div><p class="muted">照片质量：良好</p></div>`}<p class="muted">结果为图像估计，受光线、角度和毛发颜色影响，不用于皮肤诊断。</p>${!S.low?aiReview():''}${primary(S.entry==='owned'?'核对已有产品':'查看候选产品','nextAfterPhoto()')}<button class="textbtn" onclick="S.low=!S.low;render()">切换识别不确定状态</button>`;
+if(page===6){s=`<h2>${S.filter==='care'?'护理产品':S.catalogAll?'脱毛产品库 · 6款':([S.damage,S.reaction].includes('yes')||S.test==='blocked')?'产品资料库':'本次查找结果'}</h2><p class="muted">${S.filter==='care'?'以下为可选的后续护理产品，不参与脱毛产品匹配。':[S.damage,S.reaction].includes('yes')||S.test==='blocked'?'当前仅供查看产品资料；浏览或更换产品不代表可以继续使用。':S.catalogAll?'包含官网女士、男士脱毛膏及蜡纸；护理产品仅在点击对应分类后查看。':'根据所选系列、肤质条件与部位查看产品；使用前还需核对包装说明。'}</p><input type="search" aria-label="搜索产品名称" placeholder="${S.filter==='care'?'搜索护理产品':'搜索净纯、菁纯或男士'}" value="${esc(S.query)}" oninput="S.query=this.value;updateCatalog()"><div class="selection">${[['all','全部类别'],['cream','脱毛膏'],['wax','蜡纸'],...(S.catalogAll?[['men','男士']]:[]),['care','护理产品']].map(([v,t])=>`<button class="${S.filter===v?'selected':''}" onclick="S.filter='${v}';render()">${t}</button>`).join('')}</div><div id="catalogResults">${catalogMarkup()}</div>${S.filter==='care'?(S.aftercareReturn===11?secondary('返回护理反馈','navigate(11)'):''):!S.catalogAll?'<button class="textbtn" onclick="setCatalogAll(true)">查看全部6款脱毛产品</button>':profileComplete()?'<button class="textbtn" onclick="setCatalogAll(false)">返回本次查找结果</button>':''}<p class="muted">官网查找结果不替代手中包装的完整使用限制。</p>`}
+if(page===7){const [status,msg]=suitability(p);s=`<span class="badge gray">官网${p.gender==='男'?'男士':'女士'}系列 · ${p.kind==='cream'?'脱毛膏':'蜡纸'}</span><h2>${p.name}<br>${p.variant}</h2><img class="detailimg" src="${p.image}" alt="${p.name} ${p.variant} 官网包装图"><b>产品规格</b><div class="chips">${p.sizes.map(z=>`<span class="chip specUnit">${esc(z)}</span>`).join('')}</div><div class="card">${careAreaChoices(p)}<b>官网肤质标示</b><p>${p.skin}肌肤${p.id==='69'?'；适合粗硬毛发':''}</p><b>适用部位</b><div class="chips">${p.areas.map(a=>`<span class="chip">${a}</span>`).join('')}</div>${p.kind==='cream'?`<b>使用说明节点</b><p>${p.check} 分钟后检查<br>总时长不超过 ${p.maximum} 分钟</p>`:'<b>使用方式</b><p>揭开 → 顺向贴 → 逆向撕 → 清理残蜡</p><p class="muted">无膏体停留计时。</p>'}${fragranceSection(p)}</div>${p.id==='69'?'<div class="notice">官网首图与长图出现不同包装。请核对手中产品版本。</div>':''}${p.id==='71'?'<div class="notice">官网部位文字与包装图有差异。腋下、比基尼边界暂需核验包装后确认。</div>':''}${S.gender?`<div class="notice ${status==='supported'?'pink':''}">${msg}</div>`:''}<a href="${p.url}" target="_blank" rel="noopener">打开官网产品详情 ↗</a><p class="muted">资料核验 2026-10-08；实际操作依据手中产品现行说明。</p><div class="error" id="formError"></div>${primary(profileComplete()?'使用这款产品':'确认产品，填写护理信息','detailNext()')}<p class="muted">${profileComplete()?'下一步：先核对手中包装和使用间隔，再完成局部测试。':'填写护理信息后，再核对包装与使用条件。'}</p>${secondary('返回产品列表','navigate(6)')}`}
+if(page===8)s=`<span class="badge">使用前确认 · ${S.packageChecked?'2 / 2':'1 / 2'}</span><h2>${S.packageChecked?'使用前先完成测试':'先核对包装与间隔'}</h2><p class="muted">${p.name} ${p.variant}<br>官网规格：${specList(p.sizes)}<br>${esc(S.area)} · 本次护理</p>${!S.packageChecked?`<div class="card pale"><h3>先核对实际包装</h3><p class="muted">确认名称、类型、规格、适用部位和使用说明。<br>官网资料不能完全替代手中版本。</p></div>${intervalFields()}<div class="error" id="formError"></div>${primary('已核对，继续局部测试',"confirmPackage()")}${secondary('返回产品详情','navigate(7)')}`:S.test==='new'?`<span class="badge">局部测试</span><div class="step"><div class="stepnum">1</div><div><b>按说明完成小范围测试</b><p>在本次目标部位小范围使用，并按该产品方法清除。</p></div></div><div class="step"><div class="stepnum">2</div><div><b>记录完成时间并观察</b><p>该产品官网说明要求观察 24 小时。</p></div></div>${primary('已完成局部试用，开始观察','beginObservation()')}${testSaveNotice()}`:S.test==='waiting'?`<span class="badge">观察中</span><div class="card pale"><p>距离观察结束还有</p><h3 id="observationRemaining">${S.observationStart?observationRemaining():'24 小时'}</h3><p class="muted">${S.observationStart?'预计 '+observationEnd()+' 结束':'请记录实际试用完成时间后开始观察。'}</p></div><div class="notice">请按产品说明完成24小时观察。此原型可直接进入下一步，供测试与展示；实际使用仍需完成观察。若出现不适，请及时停止使用并处理。</div><button class="primary" onclick="openObservationFeedback()">观察结束后填写反馈</button>${secondary('有不适或不确定','blockTest()')}${testSaveNotice()}`:S.test==='feedback'?`<span class="badge">观察后反馈</span><div class="card"><h3>测试部位是否出现不适？</h3><p class="muted">观察结束仍需主动反馈，不能自动判定通过。</p></div>${primary('无不适，继续',"passTest()")}${secondary('有不适或不确定',"blockTest()")}${testSaveNotice()}`:S.test==='passed'?`<div class="card pale"><h3>已记录无不适反馈</h3><p class="muted">本次产品与部位的测试反馈已记录。请按每次使用前的测试要求确认。</p></div>${primary('查看使用指导','passTest()')}`:`${pausePanel(p)}`}<p class="muted">每次使用前检查测试；更换产品或部位后重新核对。</p>`;
+if(page===9)s=`<span class="badge">脱毛膏使用指导</span><h2>按说明使用脱毛膏</h2><p class="muted">${p.name} ${p.variant}<br>官网规格：${specList(p.sizes)}</p><div class="row"><div class="card pale">首次检查<div class="metric">${p.check}′</div></div><div class="card pale">总时长上限<div class="metric">${p.maximum}′</div></div></div>${creamArtwork(S.phase==='apply'?1:S.phase==='rinse'?3:2)}${S.phase==='apply'?`<div class="step"><div class="stepnum">1</div><div><b>涂抹</b><p>用内置刮匙均匀涂抹，完全覆盖毛发。按手中包装确认计时起点。</p></div></div>${timerCard(p)}`:S.phase==='check'?`<div class="step"><div class="stepnum">2</div><div><b>检查一小块</b><p>用刮匙轻轻测试一小块。若毛发可轻易去除，按包装说明逆毛流刮除。</p></div></div><div class="notice">已到首次检查节点；累计时间继续计算，不会重新计时。</div>${primary('能去除，查看清除步骤','finishCream()')}${secondary('不能去除，继续剩余倒计时',"S.phase='limit';if(!S.timerStart)S.timerStart=Date.now();render()")}`:S.phase==='limit'?`<div class="notice">继续部分计入同一次总时长，最多 ${p.maximum} 分钟；没有暂停或延长按钮。</div>${timerCard(p)}`:`<div class="step"><div class="stepnum">3</div><div><b>清除并清洗</b><p>用清水彻底冲净残留膏体与毛发，然后轻拍擦干。不为拍照延误清除。</p></div></div>${primary('查看护理后记录','navigate(11)')}`}${secondary('出现不适','stopForDiscomfort()')}${creamAllSteps()}<p class="muted">按包装确认计时起点；出现不适时按说明及时清除。</p>`;
+if(page===10){const steps=[['揭开蜡纸','捏住宽弧形易拉尾翼，慢慢揭开。','从尾翼分开，不直接触碰蜡面'],['顺向敷贴','沿毛发生长方向敷贴并抚平，确保贴合。','图中毛发向右生长，顺向抚平也向右'],['逆向撕除','保持肌肤绷紧，<br>逆毛发生长方向贴近皮肤快速撕除。','图中毛发向右生长，从右向左贴近皮肤快速撕除；右端向左折回，不要垂直向上拉'],['清理残蜡','使用随附清洁湿巾处理多余蜡渍。','采用随附湿巾，操作依据对应包装']];const x=steps[S.waxStep];s=`<span class="badge">步骤图解 · 无操作计时</span><h2>按说明使用蜡纸</h2><p class="muted">薇婷净纯脱毛蜡纸<br>官网规格：${specList(p.sizes)}</p><div class="waxProgress">${steps.map((_,i)=>`<span class="${i===S.waxStep?'current':i<S.waxStep?'done':''}">${i+1}</span>`).join('')}<b>${S.waxStep+1} / 4</b></div><div class="waxArt"><img src="assets/wax-watercolor-${S.waxStep+1}.png" alt="${x[0]}操作示意：${x[2]}"></div>${S.waxStep===1?'<div class="directionLegend"><span>毛发生长 →</span><b>顺向抚平 →</b></div>':S.waxStep===2?'<div class="directionLegend"><span>毛发生长 →</span><b>← 撕除方向</b></div>':''}<span class="badge gray">STEP 0${S.waxStep+1}</span><h2>${x[0]}</h2><p>${x[1]}</p><div class="card pale"><b>操作重点</b><p class="muted">${x[2]}</p></div>${S.waxStep<3?primary('下一步',"S.waxStep++;render()"):primary('完成步骤，记录体验','navigate(11)')}${S.waxStep>0?secondary('上一步',"S.waxStep--;render()"):''}${secondary('出现不适','stopForDiscomfort()')}<p class="muted">图解为原创水彩操作示意；按手中包装操作。避免同一区域反复操作；局部测试与再次使用间隔要求仍保留。</p>`}
+if(page===11)s=`<span class="badge">护理反馈</span><h2>记录本次护理</h2>${S.photo&&photoSupported()?`<p class="muted">先确认肌肤清洁、无产品覆盖且没有不适，再记录照片。不为拍照延误清除。</p>${!S.afterPhoto?`${primary('拍摄护理后照片',"captureAfter()")}`:`<div class="row"><div>${skinImage(12,'护理前')}</div><div>${skinImage(3,'护理后')}</div></div>${S.comparison?coverageComparison()+aiReview(true):'<div class="card pale"><b>两张照片的拍摄条件不一致</b><p class="muted">请检查光线、角度与区域一致性，避免直接判断护理效果。</p></div>'}<button class="textbtn" onclick="S.comparison=!S.comparison;render()">切换可比与不可比状态</button>`}`:'<div class="card pale">本次没有图像对比。你仍可记录使用体验。</div>'}${radios('使用满意度','rating',[['满意','满意'],['一般','一般'],['不满意','不满意']])}${radios('本次是否出现不适','discomfort',[['无','无'],['有','有'],['不确定','不确定']])}<label class="muted">备注（可选）<textarea aria-label="护理备注" onchange="S.remark=this.value">${esc(S.remark)}</textarea></label><div class="error" id="formError"></div>${primary('保存护理记录','saveRecord()')}<div id="aftercareSlot">${aftercarePanel()}</div>`;
+if(page===12)s=`<h2>我的护理记录</h2><p class="muted">记录仅在当前页面保存，刷新后清空。</p>${S.records.length?S.records.map((r,i)=>`<div class="card"><span class="badge">护理记录</span><h3>${esc(r.area)} · ${esc(r.name)}</h3><p class="muted">${recordSpecs(r.size)}<br>${r.hasComparison?'脱毛前覆盖率 '+formatCoverage(r.coverageBefore)+'% → 脱毛后 '+formatCoverage(r.coverageAfter)+'%<br>相对下降 '+formatRelative(coverageDifference(r.coverageBefore,r.coverageAfter).relative)+'%（下降 '+formatCoverage(coverageDifference(r.coverageBefore,r.coverageAfter).points)+' 个百分点）':'未记录可比的前后照片'}<br>满意度：${esc(r.rating)} · 不适：${esc(r.discomfort)}</p>${r.remark?'<p class="muted">备注：'+esc(r.remark)+'</p>':''}<button class="textbtn" onclick="deleteRecord(${i})">删除记录</button></div>`).join(''):'<div class="card pale">还没有护理记录。完成护理后可在这里回看。</div>'}<blockquote class="brandQuote"><svg class="quoteMark quoteOpen" viewBox="0 0 129 112" aria-hidden="true" focusable="false"><path d="M0 112V57C0 35 6 15 17 0H41C30 18 25 37 25 57H54V112Z" fill="#ff99c8"/><path d="M75 112V57C75 35 81 15 92 0H116C105 18 100 37 100 57H129V112Z" fill="#ffe1ee"/></svg><p>让每个人自由展露肌肤</p><p>自信展示自我<br>尽享美好生活</p><svg class="quoteMark quoteClose" viewBox="0 0 129 112" aria-hidden="true" focusable="false"><path d="M0 112V57C0 35 6 15 17 0H41C30 18 25 37 25 57H54V112Z" fill="#ff99c8"/><path d="M75 112V57C75 35 81 15 92 0H116C105 18 100 37 100 57H129V112Z" fill="#ffe1ee"/></svg></blockquote>${primary('开始新的护理',"start('choose')")}`;
+if(page===13)s=`<h2>我的</h2><div class="card"><h3>数据与隐私</h3><p class="muted">照片不上传。待完成测试的产品、部位、筛查答案及观察时间保存在本机，供下次打开继续；仅保留一项，不包含照片。清除浏览器或小程序数据后无法找回。护理记录仍仅在本次页面会话保存，刷新即清空。</p>${secondary('清除待完成测试','discardPendingTest()')}${secondary('清空护理记录','deleteAll()')}</div><div class="card"><h3>产品说明</h3><a href="https://www.veet.com.cn" target="_blank" rel="noopener">查看薇婷官网产品说明 ↗</a></div><p class="muted">请按对应产品说明完成护理。</p>`;
+return formatSmallText(s)}
+function catalogResults(list){return list.length?list.map(productCard).join(''):'<div class="card pale"><h3>暂无完全匹配的候选产品</h3><p class="muted">可调整官网查找条件或查看全部产品；没有结果时不会自行添加其他推荐。</p></div>'}
+function updateCatalog(){document.getElementById('catalogResults').innerHTML=formatSmallText(catalogMarkup())}
+function passTest(){resolveInterval();if(!S.packageChecked||S.interval!=='no'||suitability(product())[0]!=='supported')return showModal('先完成使用前确认','请先核对包装、再次使用间隔及皮肤状态，再完成局部测试。','返回核对',()=>navigate(8),'返回修改',()=>navigate(2));S.test='passed';if(!S.galleryDemo)clearTestProgress();navigate(product().kind==='wax'?10:9)}
+function captureAfter(){if(S.discomfort!=='无')return setError('请先在下方记录是否不适；仅无不适时继续拍照。');S.afterPhoto=true;render()}
+function saveRecord(){if(!S.rating||!S.discomfort)return setError('请记录满意度和是否不适。');if(S.discomfort!=='无')return showModal('暂停图像评估','你反馈有不适或不确定，请先停止脱毛并处理不适。'+discomfortAdvice(product())+' 暂不继续采集照片或评估效果；可以仅保存体验记录。','保存体验记录',()=>commitRecord(false),'返回修改');commitRecord(S.photo&&S.afterPhoto&&S.comparison&&photoSupported())}
+function commitRecord(hasComparison){const p=product();S.records.push({area:S.area,name:(p?.name??'未选产品')+' '+(p?.variant??''),size:'官网规格：'+p.sizes.join(' / '),rating:S.rating,discomfort:S.discomfort,remark:S.remark,hasComparison,coverageBefore:hasComparison?COVERAGE_EXAMPLE.before:null,coverageAfter:hasComparison?COVERAGE_EXAMPLE.after:null});navigate(12);toast('已保存本次护理记录')}
+function deleteRecord(i){showModal('删除护理记录','删除本条护理记录后无法在当前会话恢复。','确认删除',()=>{S.records.splice(i,1);render();toast('已删除护理记录')})}
+function deleteAll(){showModal('清除护理记录','此操作仅清除当前页面会话内的护理记录。','确认清除',()=>{S.records=[];render();toast('已清除护理记录')})}
+function showModal(title,msg,action='知道了',cb=null,cancelLabel='返回',cancelCb=null){document.getElementById('modalRoot').innerHTML=`<div class="modalback"><div class="modal" role="dialog" aria-modal="true" aria-label="${esc(title)}"><h3>${esc(title)}</h3><p>${phraseContent(esc(msg))}</p><button class="primary" id="modalConfirm">${esc(action)}</button><button class="secondary" id="modalCancel">${esc(cancelLabel)}</button></div></div>`;document.getElementById('modalConfirm').onclick=()=>{closeModal();if(cb)cb()};document.getElementById('modalCancel').onclick=()=>{closeModal();if(cancelCb)cancelCb()};document.getElementById('modalConfirm').focus()}
+function closeModal(){document.getElementById('modalRoot').innerHTML=''}
+function toast(msg){const el=document.getElementById('toast');el.textContent=msg;el.classList.remove('hidden');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.add('hidden'),2400)}
+function sample(page){S.aftercareReturn=null;S.careProduct=null;S.careReturn=null;S.findAreas=['腿部'];S.findSkins=['114'];S.catalogAll=false;S.gender='女';S.area='腿部';S.leg='小腿';S.skin='敏感';S.kind='any';S.damage='no';S.reaction='no';S.interval='no';S.prior='no';S.method='';S.lastTime='';S.lastProduct='';S.intervalConfirm='yes';S.timerStart=0;S.timerOffset=0;S.timerEnded=false;S.product=page===10?'71':'80';S.size=page===10?'16 片':'100 ml';S.photo=![10,13].includes(page);S.afterPhoto=page===11;S.test=page===8?'feedback':'passed';S.packageChecked=page!==8;S.phase='apply';S.waxStep=0;S.quality='good';S.low=false;S.comparison=true;S.query='';S.filter='all';S.rating='';S.discomfort='';S.history=[];S.entry='choose';S.galleryDemo=true;S.observationStart=0;if(page===8){S.packageChecked=true;S.test='waiting';S.observationStart=Date.now()}S.page=page}
+function jump(page){if(view!=='prototype')document.getElementById('pageSelect').innerHTML=PAGES.map((n,i)=>`<option value="${i}">${String(i+1).padStart(2,'0')} ${n}</option>`).join('');switchView('prototype');if(page===0){start('choose');S.page=0;S.history=[];render()}else{sample(page);render()}}
+function render(){document.getElementById('pageSelect').value=String(S.page);persistTestProgress();document.getElementById('screen').innerHTML=draft(S.page);document.getElementById('screen').scrollTop=0;document.getElementById('pagemenu').innerHTML=PAGES.map((n,i)=>`<button class="navbutton ${i===S.page?'active':''}" onclick="jump(${i})">${String(i+1).padStart(2,'0')} ${n}</button>`).join('');document.getElementById('annotations').innerHTML=`<span class="badge gray">P${String(S.page+1).padStart(2,'0')} · 设计说明</span><h3 style="margin-top:14px">${NOTES[S.page][0]}</h3><ul><li>${NOTES[S.page][1]}</li><li>${NOTES[S.page][2]}</li></ul>${S.galleryDemo?'<div class="notice pink">当前为目录载入的示例状态。回首页可从空白表单体验主流程。</div>':''}<p>产品资料核验：2026-10-08<br>本集合为设计原型，待完成测试使用本机存储演示恢复，正式小程序需接入对应存储能力。尚未接入真实相机、AI、云保存或提醒服务，不用于实际护理。</p>`;const tabs=document.getElementById('tabs');tabs.classList.toggle('hidden',![0,12,13].includes(S.page));tabs.innerHTML=[[0,'护理'],[12,'记录'],[13,'我的']].map(([i,t])=>`<button class="${S.page===i?'selected':''}" onclick="navigate(${i})">${t}</button>`).join('')}
+function buildOverview(){const saved=JSON.parse(JSON.stringify(S));let result='';for(let i=0;i<PAGES.length;i++){sample(i);if(i===0)S.page=0;result+=`<article class="preview"><div class="previewtitle">P${String(i+1).padStart(2,'0')} ${PAGES[i]}</div><div class="previewbody">${draft(i)}</div></article>`}S=saved;document.getElementById('overview').innerHTML=result}
+function switchView(v){view='prototype';render()}
+document.getElementById('pageSelect').innerHTML=PAGES.map((n,i)=>`<option value="${i}">${String(i+1).padStart(2,'0')} ${n}</option>`).join('');switchView('prototype');
+</script><script src="translation.js"></script></body></html>
