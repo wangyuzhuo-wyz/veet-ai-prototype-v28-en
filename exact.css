@@ -2,3 +2,5 @@
 .search-hidden{display:none!important}
 
 .notes-live{position:absolute;inset:0;display:block;margin:0;z-index:1}.notes-live::placeholder{color:#d9006c;opacity:1}
+
+#canvas .scroll{overflow-anchor:none}
